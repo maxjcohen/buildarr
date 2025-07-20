@@ -106,11 +106,8 @@ def test_invalid_email_address(test_attr) -> None:
     with pytest.raises(
         ValidationError,
         match=(
-            r"value is not a valid email address: The email address is not valid\. "
-            r"It must have exactly one @-sign\. "
-            r"\[type=value_error"
-            f", input_value={test_attr!r}"
-            r", input_type=str\]"
+            r"value is not a valid email address: An email address must have an @-sign."
+            f"[type=value_error, input_value='{test_attr!r}', input_type=str]"
         ),
     ):
         Settings(test_attr=test_attr)
